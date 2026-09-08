@@ -6,7 +6,6 @@ color: черна козина
 personality:
   - Любопитна
   - Дързка
-  - Играчка джебчийка
 status: свободно
 order: 1
 image: /images/cats/kali/cover.jpg
