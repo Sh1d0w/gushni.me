@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Контакти" description="Как да осиновите коте — свържете се с нас.">
+  <section class="max-w-3xl mx-auto px-6 py-16">
+    <h1 class="font-heading text-4xl text-brown mb-4 text-center">Как да осиновите коте</h1>
+    <p class="text-brown-light text-center mb-12">
+      Ще се радваме да отговорим на всички въпроси и да ви запознаем с котенцата на живо.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-white rounded-3xl p-8 shadow-sm border border-cream-dark">
+        <h2 class="font-heading text-2xl text-brown mb-4">Свържете се с нас</h2>
+        <ul class="space-y-3 text-brown-light">
+          <li>📧 <a href="mailto:info@gushni.me" class="hover:text-terracotta">info@gushni.me</a></li>
+          <li>📞 <a href="tel:+359000000000" class="hover:text-terracotta">+359 00 000 0000</a></li>
+          <li>📷 <a href="#" class="hover:text-terracotta">Instagram</a></li>
+          <li>📘 <a href="#" class="hover:text-terracotta">Facebook</a></li>
+        </ul>
+        <p class="text-xs text-brown-light/70 mt-4">
+          * Заменете тези данни с реалните контакти в src/pages/kontakti.astro
+        </p>
+      </div>
+
+      <div class="bg-white rounded-3xl p-8 shadow-sm border border-cream-dark">
+        <h2 class="font-heading text-2xl text-brown mb-4">Процес на осиновяване</h2>
+        <ol class="space-y-3 text-brown-light list-decimal list-inside">
+          <li>Свържете се с нас и споделете кое коте ви е харесало</li>
+          <li>Уговаряме среща на живо с котето</li>
+          <li>Обсъждаме условията за отглеждане</li>
+          <li>Котето отива в новия си дом с грижа и обич!</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <a href="/koteta/" class="text-terracotta font-heading hover:underline">← Разгледай отново котетата</a>
+    </div>
+  </section>
+</Layout>

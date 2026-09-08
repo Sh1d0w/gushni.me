@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Снимка предстои">
+  <circle cx="100" cy="100" r="100" fill="#F6C6A0" />
+  <path d="M55 55 L75 95 L45 100 Z" fill="#E8734A" />
+  <path d="M145 55 L155 100 L125 95 Z" fill="#E8734A" />
+  <circle cx="100" cy="115" r="55" fill="#FDF6EC" />
+  <circle cx="80" cy="105" r="6" fill="#3D2B22" />
+  <circle cx="120" cy="105" r="6" fill="#3D2B22" />
+  <path d="M92 122 Q100 130 108 122" stroke="#3D2B22" stroke-width="3" fill="none" stroke-linecap="round" />
+  <path d="M100 118 L96 124 L104 124 Z" fill="#E8734A" />
+  <line x1="60" y1="120" x2="30" y2="115" stroke="#3D2B22" stroke-width="2" stroke-linecap="round" />
+  <line x1="60" y1="128" x2="30" y2="132" stroke="#3D2B22" stroke-width="2" stroke-linecap="round" />
+  <line x1="140" y1="120" x2="170" y2="115" stroke="#3D2B22" stroke-width="2" stroke-linecap="round" />
+  <line x1="140" y1="128" x2="170" y2="132" stroke="#3D2B22" stroke-width="2" stroke-linecap="round" />
+</svg>

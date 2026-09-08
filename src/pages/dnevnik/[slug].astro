@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const updates = await getCollection('updates');
+  return updates.map((update) => ({ params: { slug: update.id }, props: { update } }));
+}
+
+const { update } = Astro.props;
+const { title, date, image, relatedCats } = update.data;
+const { Content } = await render(update);
+const formatted = new Intl.DateTimeFormat('bg-BG', { day: 'numeric', month: 'long', year: 'numeric' }).format(date);
+
+let related: Awaited<ReturnType<typeof getCollection<'cats'>>> = [];
+if (relatedCats.length) {
+  const allCats = await getCollection('cats');
+  related = allCats.filter((c) => relatedCats.includes(c.id));
+}
+---
+
+<Layout title={title}>
+  <article class="max-w-3xl mx-auto px-6 py-16">
+    <a href="/dnevnik/" class="text-terracotta font-heading hover:underline">← Целият дневник</a>
+    <p class="text-terracotta font-heading mt-6 mb-2">{formatted}</p>
+    <h1 class="font-heading text-4xl text-brown mb-8">{title}</h1>
+    {image && <img src={image} alt={title} class="rounded-3xl w-full mb-8" />}
+    <div class="update-body text-brown-light">
+      <Content />
+    </div>
+
+    {related.length > 0 && (
+      <div class="mt-12 pt-8 border-t border-cream-dark">
+        <p class="font-heading text-brown mb-3">Свързани котета:</p>
+        <div class="flex flex-wrap gap-3">
+          {related.map((cat) => (
+            <a
+              href={`/koteta/${cat.id}/`}
+              class="bg-cream-dark hover:bg-peach/50 text-brown px-4 py-2 rounded-full text-sm transition-colors"
+            >
+              {cat.data.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+  </article>
+</Layout>
+
+<style>
+  .update-body :global(p) {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+</style>

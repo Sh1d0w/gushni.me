@@ -1,0 +1,20 @@
+---
+interface Props {
+  image?: string;
+  name: string;
+  index?: number;
+  class?: string;
+}
+const { image, name, index = 0, class: className = '' } = Astro.props;
+
+const palettes = ['bg-peach/60', 'bg-rose/30', 'bg-sage/25', 'bg-terracotta/20', 'bg-cream-dark', 'bg-peach/40'];
+const bg = palettes[index % palettes.length];
+---
+
+{image ? (
+  <img src={image} alt={`Снимка на ${name}`} class={`w-full h-full object-cover ${className}`} loading="lazy" />
+) : (
+  <div class={`flex items-center justify-center w-full h-full ${bg} ${className}`}>
+    <img src="/images/placeholder-cat.svg" alt="Снимка предстои" class="w-1/2 h-1/2 opacity-90" />
+  </div>
+)}

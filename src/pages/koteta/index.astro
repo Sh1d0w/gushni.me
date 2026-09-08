@@ -1,0 +1,69 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CatCard from '../../components/CatCard.astro';
+import { getCollection } from 'astro:content';
+
+const cats = (await getCollection('cats')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout title="Котета" description="Запознайте се с шестте котенца, търсещи дом.">
+  <section class="max-w-6xl mx-auto px-6 py-16">
+    <h1 class="font-heading text-4xl text-brown mb-4 text-center">Нашите котета</h1>
+    <p class="text-brown-light text-center max-w-2xl mx-auto mb-10">
+      Всяко от тях си има свой характер. Разгледайте профилите им и открийте своя нов домашен
+      любимец.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-3 mb-10">
+      <button data-filter="всички" class="filter-btn active-filter">Всички</button>
+      <button data-filter="свободно" class="filter-btn">Свободно</button>
+      <button data-filter="запазено" class="filter-btn">Запазено</button>
+      <button data-filter="осиновено" class="filter-btn">Осиновено</button>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="cats-grid">
+      {cats.map((cat, i) => (
+        <div class="cat-item" data-status={cat.data.status}>
+          <CatCard cat={cat} index={i} />
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    border: 1px solid var(--color-cream-dark);
+    background: white;
+    color: var(--color-brown-light);
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    transition: background-color 0.2s ease;
+  }
+  .filter-btn:hover {
+    background: var(--color-cream-dark);
+  }
+  .filter-btn.active-filter {
+    background: var(--color-terracotta);
+    color: white;
+    border-color: var(--color-terracotta);
+  }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.cat-item');
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      buttons.forEach((b) => b.classList.remove('active-filter'));
+      btn.classList.add('active-filter');
+      const filter = btn.getAttribute('data-filter');
+      items.forEach((item) => {
+        const show = filter === 'всички' || item.getAttribute('data-status') === filter;
+        item.style.display = show ? '' : 'none';
+      });
+    });
+  });
+</script>

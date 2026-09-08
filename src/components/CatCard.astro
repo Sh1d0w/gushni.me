@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import StatusBadge from './StatusBadge.astro';
+import CatImage from './CatImage.astro';
+
+interface Props {
+  cat: CollectionEntry<'cats'>;
+  index?: number;
+}
+const { cat, index = 0 } = Astro.props;
+const { name, gender, age, status, image, personality } = cat.data;
+---
+
+<a
+  href={`/koteta/${cat.id}/`}
+  class="group block bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-cream-dark"
+>
+  <div class="aspect-square overflow-hidden">
+    <CatImage image={image} name={name} index={index} class="group-hover:scale-105 transition-transform duration-300" />
+  </div>
+  <div class="p-5">
+    <div class="flex items-center justify-between gap-2 mb-2">
+      <h3 class="font-heading text-xl text-brown">{name}</h3>
+      <StatusBadge status={status} />
+    </div>
+    <p class="text-sm text-brown-light mb-3">{age} · {gender}</p>
+    <div class="flex flex-wrap gap-2">
+      {personality.slice(0, 3).map((trait) => (
+        <span class="text-xs bg-cream-dark text-brown-light px-2 py-1 rounded-full">{trait}</span>
+      ))}
+    </div>
+  </div>
+</a>

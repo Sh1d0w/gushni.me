@@ -1,0 +1,46 @@
+---
+const links = [
+  { href: '/', label: 'Начало' },
+  { href: '/koteta/', label: 'Котета' },
+  { href: '/dnevnik/', label: 'Дневник' },
+  { href: '/kontakti/', label: 'Контакти' },
+];
+const current = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-cream/90 backdrop-blur border-b border-cream-dark">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="font-heading text-2xl text-terracotta">Гушни 🐾</a>
+    <nav class="hidden md:flex gap-6">
+      {links.map((l) => (
+        <a
+          href={l.href}
+          class={`font-heading transition-colors ${current === l.href ? 'text-terracotta' : 'text-brown hover:text-terracotta'}`}
+        >
+          {l.label}
+        </a>
+      ))}
+    </nav>
+    <button id="menu-toggle" class="md:hidden text-brown" aria-label="Отвори меню">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+  <nav id="mobile-menu" class="hidden md:hidden flex-col px-6 pb-4 gap-3">
+    {links.map((l) => (
+      <a href={l.href} class="font-heading text-brown hover:text-terracotta py-1">{l.label}</a>
+    ))}
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+    menu?.classList.toggle('flex');
+  });
+</script>

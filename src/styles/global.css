@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Comfortaa", sans-serif;
+  --font-body: "Nunito", sans-serif;
+  --font-script: "Caveat", cursive;
+
+  --color-cream: #fdf6ec;
+  --color-cream-dark: #f5e8d6;
+  --color-terracotta: #e8734a;
+  --color-terracotta-dark: #c65a35;
+  --color-peach: #f6c6a0;
+  --color-brown: #3d2b22;
+  --color-brown-light: #6b5647;
+  --color-sage: #7fa07a;
+  --color-sage-dark: #5f8259;
+  --color-rose: #d98ba0;
+  --color-rose-dark: #b96780;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-brown);
+  font-family: var(--font-body);
+}
+
+.paw-divider {
+  letter-spacing: 0.5em;
+  color: var(--color-peach);
+}

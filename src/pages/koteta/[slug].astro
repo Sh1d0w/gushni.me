@@ -1,0 +1,71 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StatusBadge from '../../components/StatusBadge.astro';
+import CatImage from '../../components/CatImage.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const cats = await getCollection('cats');
+  return cats.map((cat) => ({ params: { slug: cat.id }, props: { cat } }));
+}
+
+const { cat } = Astro.props;
+const { name, gender, age, color, personality, status, image, gallery } = cat.data;
+const { Content } = await render(cat);
+---
+
+<Layout title={name} description={`Запознайте се с ${name} — ${age}, ${gender}.`}>
+  <section class="max-w-5xl mx-auto px-6 py-16">
+    <a href="/koteta/" class="text-terracotta font-heading hover:underline">← Всички котета</a>
+
+    <div class="grid md:grid-cols-2 gap-10 mt-6">
+      <div class="rounded-3xl overflow-hidden aspect-square shadow-sm">
+        <CatImage image={image} name={name} />
+      </div>
+      <div>
+        <div class="flex items-center gap-3 mb-3 flex-wrap">
+          <h1 class="font-heading text-4xl text-brown">{name}</h1>
+          <StatusBadge status={status} />
+        </div>
+        <p class="text-brown-light mb-4">{age} · {gender} · {color}</p>
+        <div class="flex flex-wrap gap-2 mb-6">
+          {personality.map((trait) => (
+            <span class="text-sm bg-cream-dark text-brown-light px-3 py-1 rounded-full">{trait}</span>
+          ))}
+        </div>
+        <div class="cat-bio text-brown-light mb-8">
+          <Content />
+        </div>
+        <a
+          href="/kontakti/"
+          class="bg-terracotta hover:bg-terracotta-dark text-white font-heading px-6 py-3 rounded-full shadow transition-colors inline-block"
+        >
+          Искам да осиновя {name}
+        </a>
+      </div>
+    </div>
+
+    {gallery.length > 0 && (
+      <div class="mt-16">
+        <h2 class="font-heading text-2xl text-brown mb-6">Още снимки</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {gallery.map((src) => (
+            <div class="rounded-2xl overflow-hidden aspect-square">
+              <img src={src} alt={`Снимка на ${name}`} class="w-full h-full object-cover" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+  </section>
+</Layout>
+
+<style>
+  .cat-bio :global(p) {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+  .cat-bio :global(strong) {
+    color: var(--color-brown);
+  }
+</style>

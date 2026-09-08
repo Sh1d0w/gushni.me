@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  update: CollectionEntry<'updates'>;
+}
+const { update } = Astro.props;
+const { title, date, excerpt } = update.data;
+const formatted = new Intl.DateTimeFormat('bg-BG', { day: 'numeric', month: 'long', year: 'numeric' }).format(date);
+---
+
+<a
+  href={`/dnevnik/${update.id}/`}
+  class="block bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-cream-dark h-full"
+>
+  <p class="text-sm text-terracotta font-heading mb-1">{formatted}</p>
+  <h3 class="font-heading text-lg text-brown mb-2">{title}</h3>
+  {excerpt && <p class="text-brown-light text-sm">{excerpt}</p>}
+</a>

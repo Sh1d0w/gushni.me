@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import UpdateCard from '../../components/UpdateCard.astro';
+import { getCollection } from 'astro:content';
+
+const updates = (await getCollection('updates')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<Layout title="Дневник" description="Дневни новини за котенцата.">
+  <section class="max-w-4xl mx-auto px-6 py-16">
+    <h1 class="font-heading text-4xl text-brown mb-4 text-center">Дневник</h1>
+    <p class="text-brown-light text-center max-w-2xl mx-auto mb-10">
+      Следете как растат и се развиват котенцата ден след ден.
+    </p>
+    <div class="grid gap-6">
+      {updates.map((u) => <UpdateCard update={u} />)}
+    </div>
+  </section>
+</Layout>
