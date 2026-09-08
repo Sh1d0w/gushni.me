@@ -6,7 +6,7 @@ import { getCollection } from 'astro:content';
 const cats = (await getCollection('cats')).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<Layout title="Котета" description="Запознайте се с шестте котенца, търсещи дом.">
+<Layout title="Котета" description="Запознайте се с петте котенца, търсещи дом.">
   <section class="max-w-6xl mx-auto px-6 py-16">
     <h1 class="font-heading text-4xl text-brown mb-4 text-center">Нашите котета</h1>
     <p class="text-brown-light text-center max-w-2xl mx-auto mb-10">
