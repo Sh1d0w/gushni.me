@@ -8,7 +8,7 @@ export async function getStaticPaths() {
 }
 
 const { update } = Astro.props;
-const { title, date, image, relatedCats } = update.data;
+const { title, date, image, excerpt, relatedCats } = update.data;
 const { Content } = await render(update);
 const formatted = new Intl.DateTimeFormat('bg-BG', { day: 'numeric', month: 'long', year: 'numeric' }).format(date);
 
@@ -19,7 +19,7 @@ if (relatedCats.length) {
 }
 ---
 
-<Layout title={title}>
+<Layout title={title} description={excerpt} image={image}>
   <article class="max-w-3xl mx-auto px-6 py-16">
     <a href="/dnevnik/" class="text-terracotta font-heading hover:underline">← Целият дневник</a>
     <p class="text-terracotta font-heading mt-6 mb-2">{formatted}</p>

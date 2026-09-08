@@ -14,7 +14,7 @@ const { name, gender, age, color, personality, status, image, gallery } = cat.da
 const { Content } = await render(cat);
 ---
 
-<Layout title={name} description={`Запознайте се с ${name} — ${age}, ${gender}.`}>
+<Layout title={name} description={`Запознайте се с ${name} — ${age}, ${gender}.`} image={image}>
   <section class="max-w-5xl mx-auto px-6 py-16">
     <a href="/koteta/" class="text-terracotta font-heading hover:underline">← Всички котета</a>
 

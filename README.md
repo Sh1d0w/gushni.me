@@ -59,6 +59,19 @@
 `запазено`. Промяната се вижда веднага след `npm run dev` (локално) или след пренасяне (push) в
 GitHub (на живо).
 
+## Смяна на снимката за споделяне в социални мрежи (Open Graph)
+
+Изображението, което се показва при споделяне на сайта във Facebook/Instagram/Twitter, е
+`public/images/og-image.png` (1200×630). Изходният `.svg` файл е в `scripts/og-image.svg` — след
+редакция генерирайте наново PNG-то с:
+
+```sh
+npx rsvg-convert -w 1200 -h 630 scripts/og-image.svg -o public/images/og-image.png
+```
+
+(изисква инсталиран `librsvg2-bin` / `rsvg-convert`). Всяко коте и всяка новина може да има и своя
+собствена снимка за споделяне — просто задайте `image:` в неговия frontmatter.
+
 ## Локална разработка
 
 ```sh
