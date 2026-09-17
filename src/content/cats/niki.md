@@ -7,7 +7,7 @@ personality:
   - Игрива
   - Гушла
   - Общителна
-status: свободно
+status: запазено
 order: 3
 image: /images/cats/niki/cover.jpg
 ---
