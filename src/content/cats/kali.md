@@ -1,11 +1,11 @@
 ---
 name: Кали
 gender: женско
-age: "~1 месец"
+age: "~2 месеца"
 color: черна козина
 personality:
   - Любопитна
-  - Дързка
+  - Дръзка
 status: свободно
 order: 1
 image: /images/cats/kali/cover.jpg
