@@ -7,7 +7,7 @@ personality:
   - Спокоен
   - Любопитен
   - Обича прегръдки
-status: запазено
+status: осиновено
 order: 5
 image: /images/cats/oniks/cover.jpg
 ---
