@@ -7,7 +7,7 @@ personality:
   - Енергичен
   - Палав
   - Смел изследовател
-status: запазено
+status: осиновено
 order: 4
 image: /images/cats/noks/cover.jpg
 ---
