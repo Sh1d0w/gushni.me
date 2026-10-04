@@ -6,7 +6,7 @@ color: черна козина
 personality:
   - Любопитна
   - Дръзка
-status: свободно
+status: осиновено
 order: 1
 image: /images/cats/kali/cover.jpg
 ---
