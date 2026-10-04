@@ -1,7 +1,7 @@
 ---
 name: Лейла
 gender: женско
-age: "~2 месеца"
+age: "2+ месеца"
 color: черна козина
 personality:
   - Нежна
