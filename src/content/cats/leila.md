@@ -7,7 +7,7 @@ personality:
   - Нежна
   - Игрива
   - Наблюдателна
-status: свободно
+status: запазено
 order: 2
 image: /images/cats/leila/cover.jpg
 ---
