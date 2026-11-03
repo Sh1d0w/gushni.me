@@ -88,6 +88,3 @@ npm run preview   # преглед на build-натия сайт
 настройките на repo-то (**Settings → Pages**) source-ът е "GitHub Actions" и че custom domain-ът
 `gushni.me` е зададен (DNS-ът трябва да сочи към GitHub Pages).
 
-## Технически данни за контакт
-
-Смени placeholder контактите (имейл, телефон, социални мрежи) в `src/pages/kontakti.astro`.

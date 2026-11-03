@@ -35,12 +35,6 @@ const availableCount = cats.filter((c) => c.data.status === 'свободно').
       >
         Разгледай котетата
       </a>
-      <a
-        href="/kontakti/"
-        class="bg-white hover:bg-cream-dark text-brown font-heading px-6 py-3 rounded-full shadow border border-cream-dark transition-colors"
-      >
-        Как да осиновя
-      </a>
     </div>
   </section>
 
@@ -67,7 +61,7 @@ const availableCount = cats.filter((c) => c.data.status === 'свободно').
       всеки ден ни радват с нещо ново. ❤️
     </p>
     <p class="text-brown-light leading-relaxed">
-      Следете тук как растат, а ако искате да дадете дом на някое от тях, свържете се с нас! 🐾
+      Следете тук как растат! 🐾
     </p>
   </section>
 
@@ -91,19 +85,5 @@ const availableCount = cats.filter((c) => c.data.status === 'свободно').
         {updates.map((u) => <UpdateCard update={u} />)}
       </div>
     </div>
-  </section>
-
-  <section class="px-6 py-20 text-center bg-terracotta/10">
-    <h2 class="font-heading text-3xl text-brown mb-4">Искате ли да осиновите коте?</h2>
-    <p class="text-brown-light max-w-xl mx-auto mb-8">
-      Свържете се с нас - с удоволствие ще отговорим на всички въпроси и ще уредим среща с
-      котенцата.
-    </p>
-    <a
-      href="/kontakti/"
-      class="bg-terracotta hover:bg-terracotta-dark text-white font-heading px-8 py-3 rounded-full shadow transition-colors inline-block"
-    >
-      Свържи се с нас
-    </a>
   </section>
 </Layout>
